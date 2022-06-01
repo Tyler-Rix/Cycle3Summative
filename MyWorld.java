@@ -28,5 +28,7 @@ public class MyWorld extends World
     {
         PlayerOne playerOne = new PlayerOne();
         addObject(playerOne,124,255);
+        Enemy enemy = new Enemy();
+        addObject(enemy,708,58);
     }
 }

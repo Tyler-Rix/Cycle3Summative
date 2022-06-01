@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
-    
-    
+    int EnemySpeed = 5;
+    int deltaY;
+    int Counter = 0;
     public Enemy()
     {
         GreenfootImage image = getImage();  
@@ -23,6 +24,25 @@ public class Enemy extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        movement();
+    }  
+    
+    public void movement()
+    {
+        int randomNumber = Greenfoot.getRandomNumber(100);
+        deltaY = 0;
+        Counter++;
+        
+        if (randomNumber < 50)
+        {
+            deltaY = deltaY + EnemySpeed;
+        }
+        
+        if (randomNumber > 50)
+        {
+            deltaY = deltaY - EnemySpeed;
+        }
+        
+        setLocation(getX(), getY() + deltaY);
+    }
 }

@@ -13,7 +13,7 @@ public class PlayerOne extends Actor
     int PLAYERSPEED = 5;
     int orbDistanceY = 65;
     int orbDistanceX = 80;
-    ProtectiveOrb[] orbs = new ProtectiveOrb[6];
+    ProtectiveOrb[] orbs = new ProtectiveOrb[8];
     
     public PlayerOne()
     {
@@ -33,6 +33,7 @@ public class PlayerOne extends Actor
     {
         movement();
         spawnOrbs();
+        orbsFollow();
     }
     
     public void spawnOrbs()
@@ -42,20 +43,17 @@ public class PlayerOne extends Actor
         
         if (Greenfoot.isKeyDown("c"))
         {
-            for (int i = 1; i < 10;i++)
+            for (int i = 0; i < orbs.length;i++)
             {
-                getWorld().addObject(orbs[0], X , Y + orbDistanceY);
-                getWorld().addObject(orbs[1], X , Y - orbDistanceY);
-                getWorld().addObject(orbs[2], X - orbDistanceX, Y );
-                getWorld().addObject(orbs[3], X + orbDistanceX, Y );
+                getWorld().addObject(orbs[i], X , Y);
+                orbs[i].setRotation(i * 45);
+                orbs[i].move(65);
             }
-            // for (int i = 1; i < 10; i++)
-            // {
-                // int aX = X + 10;
-                // int aY = Y;
-                // getWorld().addObject(new ProtectiveOrb(), aY , aY);
-            // }
+            
+            
         }
+        
+        
     }
     
     public void movement()
@@ -72,10 +70,18 @@ public class PlayerOne extends Actor
             deltaY = deltaY + PLAYERSPEED;
         }
         
-        setLocation(getX(), getY() + deltaY);
-        orbs[0].setLocation(getX(), getY() + deltaY + orbDistanceY);
-        orbs[1].setLocation(getX(), getY() + deltaY - orbDistanceY);
-        orbs[2].setLocation(getX() - orbDistanceX, getY() + deltaY);
-        orbs[3].setLocation(getX() + orbDistanceX, getY() + deltaY);
+        setLocation (getX(), getY() + deltaY);
+    }
+    
+    public void orbsFollow()
+    {
+        // if (orbs[].getWorld() == getWorld())
+        // {
+            // for (int i = 0; i < orbs.length;i++)
+            // {
+                // orbs[i].setLocation(orbs[i].getX() + deltaX,orbs[i].getY() + deltaY);
+            
+            // }
+        // }
     }
 }
