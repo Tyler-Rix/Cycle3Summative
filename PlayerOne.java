@@ -14,6 +14,7 @@ public class PlayerOne extends Actor
     int orbDistanceY = 65;
     int orbDistanceX = 80;
     boolean orbsInWorld = false;
+    int cooldown = 0;
     ProtectiveOrb[] orbs = new ProtectiveOrb[8];
     
     public PlayerOne()
@@ -35,6 +36,7 @@ public class PlayerOne extends Actor
         movement();
         spawnOrbs();
         orbsFollow();
+        cooldown();
     }
     
     public void spawnOrbs()
@@ -55,6 +57,21 @@ public class PlayerOne extends Actor
         }
         
         
+    }
+    
+    public void cooldown()
+    {
+        if (cooldown > 0)
+        {
+            cooldown--;
+        }
+        if (Greenfoot.isKeyDown("c") && (cooldown == 0))
+        {
+            spawnOrbs();
+            cooldown = 350;
+            orbsInWorld = false;
+        }
+        System.out.println(cooldown);
     }
     
     public void movement()
