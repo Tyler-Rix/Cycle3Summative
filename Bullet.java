@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 {
     int bulletSpeed = -10;
+    int Counter = 0;
+    
      public Bullet()
     {
         GreenfootImage image = getImage();  
@@ -24,6 +26,7 @@ public class Bullet extends Actor
     {
         moveBullet();
         isTouching();
+        
     }
     
     public void moveBullet()
@@ -45,4 +48,6 @@ public class Bullet extends Actor
             return;
         }
     }
+    
+    
 }
