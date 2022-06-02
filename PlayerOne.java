@@ -13,6 +13,7 @@ public class PlayerOne extends Actor
     int PLAYERSPEED = 5;
     int orbDistanceY = 65;
     int orbDistanceX = 80;
+    boolean orbsInWorld = false;
     ProtectiveOrb[] orbs = new ProtectiveOrb[8];
     
     public PlayerOne()
@@ -41,16 +42,16 @@ public class PlayerOne extends Actor
         int X = getX();
         int Y = getY();
         
-        if (Greenfoot.isKeyDown("c"))
+        if (Greenfoot.isKeyDown("c") && orbsInWorld == false)
         {
             for (int i = 0; i < orbs.length;i++)
             {
                 getWorld().addObject(orbs[i], X , Y);
                 orbs[i].setRotation(i * 45);
-                orbs[i].move(65);
+                orbs[i].move(85);
             }
             
-            
+            orbsInWorld = true;
         }
         
         
@@ -59,7 +60,7 @@ public class PlayerOne extends Actor
     public void movement()
     {
         deltaY = 0;
-        
+        deltaX = 0;
         if (Greenfoot.isKeyDown("w"))
         {
             deltaY = deltaY - PLAYERSPEED;
@@ -70,18 +71,20 @@ public class PlayerOne extends Actor
             deltaY = deltaY + PLAYERSPEED;
         }
         
-        setLocation (getX(), getY() + deltaY);
+        setLocation (getX() + deltaX, getY() + deltaY);
     }
     
     public void orbsFollow()
     {
-        // if (orbs[].getWorld() == getWorld())
-        // {
-            // for (int i = 0; i < orbs.length;i++)
-            // {
-                // orbs[i].setLocation(orbs[i].getX() + deltaX,orbs[i].getY() + deltaY);
-            
-            // }
-        // }
+        
+        
+            for (int i = 0; i < orbs.length;i++)
+            {
+                 if (orbs[i].getWorld() == getWorld())
+                 {
+                     orbs[i].setLocation(orbs[i].getX() + deltaX,orbs[i].getY() + deltaY);
+                 }
+            }
+        
     }
 }
