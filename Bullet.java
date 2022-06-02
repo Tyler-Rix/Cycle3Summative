@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-    
+    int bulletSpeed = -10;
      public Bullet()
     {
         GreenfootImage image = getImage();  
@@ -22,6 +22,27 @@ public class Bullet extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        moveBullet();
+        isTouching();
+    }
+    
+    public void moveBullet()
+    {
+        move(bulletSpeed);
+    }
+    
+    public void isTouching()
+    {
+        if (isTouching(ProtectiveOrb.class))
+        {
+            getWorld().removeObject(this);
+            return;
+        }
+        
+        if (getX() < 1)
+        {
+            getWorld().removeObject(this);
+            return;
+        }
+    }
 }
