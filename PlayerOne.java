@@ -37,6 +37,7 @@ public class PlayerOne extends Actor
         cooldown();
         time();
         gameOver();
+        
     }
     
     
@@ -93,12 +94,12 @@ public class PlayerOne extends Actor
     {
         deltaY = 0;//Sets delta y
         deltaX = 0;//Sets delta x
-        if (Greenfoot.isKeyDown("w"))//Is pressing w
+        if (Greenfoot.isKeyDown("up"))//Is pressing up arrow
         {
             deltaY = deltaY - PLAYERSPEED;//Sets delta why to minus player speed
         }
         
-        if (Greenfoot.isKeyDown("s"))//Is pressing s
+        if (Greenfoot.isKeyDown("down"))//Is pressing down arrow
         {
             deltaY = deltaY + PLAYERSPEED;//Sets delta why to plus player speed
         }
@@ -119,4 +120,6 @@ public class PlayerOne extends Actor
             }
         
     }
+    
+    
 }
