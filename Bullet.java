@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Actor
 {
-    int bulletSpeed = -10;
-    int Counter = 0;
+    int bulletSpeed = -10;//Sets bullets speed
     
-     public Bullet()
+    
+     public Bullet()//Flips image
     {
         GreenfootImage image = getImage();  
         image.mirrorHorizontally();
@@ -29,12 +29,12 @@ public class Bullet extends Actor
         
     }
     
-    public void moveBullet()
+    public void moveBullet()//Moves the bullet
     {
         move(bulletSpeed);
     }
     
-    public void isTouching()
+    public void isTouching()//If bullets is touching and object remove it
     {
         if (isTouching(ProtectiveOrb.class))
         {

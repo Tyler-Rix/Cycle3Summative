@@ -8,13 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemy extends Actor
 {
-    int EnemySpeed = 5;
-    int deltaY;
-    int Counter = 0;
-    int attackCounter = 0;
-    int attackInterval = 30;
-    int INTERVAL = 90;
-    public Enemy()
+    int EnemySpeed = 5;//Enemy speed
+    int deltaY;//Sets y as a variable
+    int Counter = 0;//Sets counter to zero
+    int attackCounter = 0;//Sets attackCounter to zero
+    int attackInterval = 25;//Sets the attackInterval
+    int INTERVAL = 90;//Sets interval to zero
+    public Enemy()//Flips the enemy image
     {
         GreenfootImage image = getImage();  
         image.mirrorHorizontally();
@@ -33,52 +33,51 @@ public class Enemy extends Actor
     
     public void movement()
     {
-        int randomNumber = Greenfoot.getRandomNumber(100);
-        deltaY = 0;
-        Counter++;
+        deltaY = 0;//Sets delta y to zero
+        Counter++;//Starts the counter
         
         
-        if (Counter == 2 * INTERVAL)
+        if (Counter == 2 * INTERVAL)//Resets counter
         {
             Counter = 0;
         }
       
-        if (Counter < 1 * INTERVAL)
+        if (Counter < 1 * INTERVAL)//If lower than 1 interval
         {
-            deltaY = deltaY + EnemySpeed;
+            deltaY = deltaY + EnemySpeed;//Sets delta y to plus enemy speed
           
         }
-        else if (Counter > 1 * INTERVAL)
+        else if (Counter > 1 * INTERVAL)//If higher than 1 interval
         {
-            deltaY = deltaY - EnemySpeed;
+            deltaY = deltaY - EnemySpeed;//Sets delta y to minus enemy speed
           
         }
         
-        setLocation(getX(), getY() + deltaY);
+        setLocation(getX(), getY() + deltaY);//Sets enemy location
     }
     
     public void attack()
     {
-        Bullet bullet = new Bullet();
-        getWorld().addObject(bullet, getX(), getY());
+        Bullet bullet = new Bullet();//Makes new bullet
+        getWorld().addObject(bullet, getX(), getY());//Adds bullet to the enemys location
     }
     
     public void attackTimer()
     {
-        attackCounter++;
+        attackCounter++;//Starts counter
         
-        if (attackCounter == 2 * attackInterval)
+        if (attackCounter == 2 * attackInterval)//Resets counter
         {
             attackCounter = 0;
         }
         
-        if (attackCounter == 0 * attackInterval)
+        if (attackCounter == 0 * attackInterval)//If equal to 0 times attack interval
         {
-            attack();
+            attack();//Runs attack
         }
-        else if (attackCounter == 1 * attackInterval)
+        else if (attackCounter == 1 * attackInterval)//If equal to 1 times attack interval
         {
-            attack();
+            attack();//Run attack
         }
     }
 }
