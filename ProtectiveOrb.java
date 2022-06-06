@@ -16,6 +16,7 @@ public class ProtectiveOrb extends Actor
     public void act() 
     {
         orbsCounter();
+        removeOrbs();
     } 
     
     public void orbsCounter()
@@ -26,6 +27,15 @@ public class ProtectiveOrb extends Actor
         {
             getWorld().removeObject(this);//Remove all orbs
             Counter = 0;//Set counter to zero
+        }
+    }
+    
+    public void removeOrbs()
+    {
+        //Why would you want to do this from a game point of veiw
+        if (Greenfoot.isKeyDown("c") && (Greenfoot.isKeyDown("shift")))//Check if c and shift are pressed at the same time
+        {
+            getWorld().removeObject(this);//Remove all orbs
         }
     }
 }
