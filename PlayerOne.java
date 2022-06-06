@@ -71,7 +71,7 @@ public class PlayerOne extends Actor
             cooldown = 350;
             orbsInWorld = false;
         }
-        System.out.println(cooldown);
+        
     }
     
     public void movement()
