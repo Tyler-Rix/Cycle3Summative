@@ -26,9 +26,9 @@ public class MyWorld extends World
      */
     public void prepare()
     {
-        PlayerOne playerOne = new PlayerOne();
-        addObject(playerOne,124,255);
-        Enemy enemy = new Enemy();
-        addObject(enemy,708,58);
+        PlayerOne playerOne = new PlayerOne();//Spawns player
+        addObject(playerOne,124,255);//Sets players location
+        Enemy enemy = new Enemy();//Spawns enemy
+        addObject(enemy,708,58);//sets Enemys location
     }
 }

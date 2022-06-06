@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ProtectiveOrb extends Actor
 {
-    int Counter = 0;
+    int Counter = 0;//Sets counter to zero
     /**
      * Act - do whatever the ProtectiveOrb wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,12 +20,12 @@ public class ProtectiveOrb extends Actor
     
     public void orbsCounter()
     {
-        Counter++;
+        Counter++;//Starts counter
         
-        if (Counter == 100)
+        if (Counter == 100)//If counter equals zero 
         {
-            getWorld().removeObject(this);
-            Counter = 0;
+            getWorld().removeObject(this);//Remove all orbs
+            Counter = 0;//Set counter to zero
         }
     }
 }
